@@ -6,19 +6,32 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "typecheck": "tsc --noEmit",
+    "preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
+    "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
+    "cf:typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts",
+    "dev:cf": "CF_DEV=1 next dev"
   },
   "dependencies": {
-    "next": "16.4.0",
+    "bootstrap": "^5.3.8",
+    "bootstrap-icons": "^1.13.2",
+    "chart.js": "^4.5.1",
+    "next": "^16.3.8",
     "react": "19.3.0",
-    "react-dom": "19.3.0"
+    "react-chartjs-2": "^5.3.1",
+    "react-dom": "19.3.0",
+    "sweetalert2": "^11.26.25"
   },
   "devDependencies": {
-    "@types/node": "^20",
+    "@opennextjs/cloudflare": "^1.20.11",
+    "@types/node": "^24.19.2",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.4.0",
-    "typescript": "^5"
+    "puppeteer-core": "^25.13.0",
+    "typescript": "^5",
+    "wrangler": "^4.150.0"
   }
 }

@@ -1,9 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
-  cacheComponents: true,
-  partialPrefetching: true,
+  // ระบบนี้ต้อง login และอ่าน/เขียนฐานข้อมูลทุกหน้า
+  // จึงปิด cacheComponents เพื่อให้เรนเดอร์แบบ dynamic ตามปกติ
+  cacheComponents: false,
 };
 
 export default nextConfig;

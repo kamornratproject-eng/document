@@ -12,6 +12,16 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    "cloudflare-env.d.ts",
+    // ไฟล์ vendor ที่คัดลอกมาจากเทมเพลต (minified) — ไม่ต้อง lint
+    "public/**",
+    "apps-script/**",
+    "cron-worker/**",
+    "data/**",
+    // build artifacts ของ OpenNext/Cloudflare
+    ".open-next/**",
+    ".wrangler/**",
+    "cron-worker/**",
   ]),
 ]);
 

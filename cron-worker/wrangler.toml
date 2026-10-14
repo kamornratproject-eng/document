@@ -1,0 +1,12 @@
+name = "doc-renewal-cron"
+main = "src/index.ts"
+compatibility_date = "2025-09-01"
+
+# รันทุกวัน เวลา 08:00 น. (เวลาประเทศไทย = 01:00 UTC)
+[triggers]
+crons = ["0 1 * * *"]
+
+[vars]
+# ที่อยู่เว็บของระบบหลัก (แก้เป็นของคุณ)
+APP_URL = "https://doc-renewal.dsssystem.workers.dev"
+CRON_SECRET = "dsssystem"

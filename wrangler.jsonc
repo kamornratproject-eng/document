@@ -1,0 +1,35 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "main": ".open-next/worker.js",
+  "name": "doc-renewal",
+  "compatibility_date": "2025-09-01",
+  "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS"
+  },
+  "services": [
+    {
+      "binding": "WORKER_SELF_REFERENCE",
+      "service": "doc-renewal"
+    }
+  ],
+  // ฐานข้อมูล SQLite บน Cloudflare = D1 (สร้างด้วย: npx wrangler d1 create document_db)
+  // apply schema: npx wrangler d1 execute document_db --remote --file=scripts/schema.sql
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "document_db",
+      "database_id": "f234bf7a-5118-43aa-b4b7-4472cd0afbdd"
+    }
+  ],
+  "vars": {
+    "APP_URL": "https://doc-renewal.dsssystem.workers.dev",
+    "EMAIL_PROVIDER": "gas",
+    "GDRIVE_FOLDER_ID": "1AtnkpeRcZ7KVD2wpgwIi2hNsq8Mt-E2Q",
+    "STORAGE_BACKEND": "drive",
+    "GAS_WEBAPP_URL": "https://script.google.com/macros/s/AKfycby8YGbzPHFbqAr12WHycu3pU7Qr3gJFTsmr2M9xAKAVYiKPjneeeSzQzb8Goa4T2iTT/exec",
+    "EMAIL_FROM": "kamornratproject@gmail.com",
+    "CRON_SECRET": "dsssystem"
+  }
+}
