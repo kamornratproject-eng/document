@@ -418,14 +418,27 @@ function DocumentsInner({ canEdit }: { canEdit: boolean }) {
                   <td>
                     {d.file.id ? (
                       <a
-                        className="file-chip"
                         href={d.file.url || "#"}
                         target="_blank"
                         rel="noreferrer"
                         title={d.file.name || ""}
+                        className="file-thumb-link"
                       >
-                        <i className="bi bi-paperclip" />
-                        <span>{d.file.name}</span>
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img
+                          src={`https://drive.google.com/thumbnail?id=${d.file.id}&sz=w80`}
+                          alt={d.file.name || "ไฟล์เอกสาร"}
+                          className="file-thumb"
+                          onError={(e) => {
+                            const el = e.currentTarget as HTMLImageElement;
+                            el.style.display = "none";
+                            const fallback = el.nextElementSibling as HTMLElement | null;
+                            if (fallback) fallback.style.display = "inline-flex";
+                          }}
+                        />
+                        <span className="file-thumb-fallback" style={{ display: "none" }}>
+                          <i className="bi bi-file-earmark-text" />
+                        </span>
                       </a>
                     ) : (
                       <span className="no-file">ไม่มีไฟล์แนบ</span>

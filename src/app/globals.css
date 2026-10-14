@@ -138,6 +138,39 @@
   font-size: 12.5px;
 }
 
+/* ===== File Thumbnail ===== */
+.file-thumb-link {
+  display: inline-block;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #e2e8f0;
+  transition: box-shadow 0.15s ease, transform 0.15s ease;
+  line-height: 0;
+}
+
+.file-thumb-link:hover {
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+  transform: scale(1.04);
+}
+
+.file-thumb {
+  display: block;
+  width: 72px;
+  height: 72px;
+  object-fit: cover;
+  background: #f8fafc;
+}
+
+.file-thumb-fallback {
+  width: 72px;
+  height: 72px;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  color: #64748b;
+  background: #f1f5f9;
+}
+
 /* ===== การ์ดสรุป ===== */
 .metric-card .metric-value {
   font-variant-numeric: tabular-nums;
